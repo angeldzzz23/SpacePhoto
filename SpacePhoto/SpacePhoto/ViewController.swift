@@ -11,9 +11,9 @@ class ViewController: UIViewController {
 
     // MARK: properties
     
-    let image: UIImageView = {
+    let imageView: UIImageView = {
     let imageview = UIImageView()
-        imageview.backgroundColor = .blue
+//        imageview.backgroundColor = .blue
         return imageview
         
     }()
@@ -32,11 +32,15 @@ class ViewController: UIViewController {
        return view
     }()
     
+    let photoInfoController = PhotoInfoController()
+    
+    
     
     let descritionLbl: UILabel = {
         let label = UILabel()
         label.text = """
-             ven though Jupiter was the only planet visible in the evening sky on February 2, it shared the twilight above the western horizon with the Solar System\'s brightest moons. In a single exposure made just after sunset, the Solar System\'s ruling gas giant is at the upper right in this telephoto field-of-view from Cancun, Mexico. The snapshot also captures our fair planet\'s own natural satellite in its young crescent phase. The Moon\'s disk looms large, its familiar face illuminated mostly by earthshine. But the four points of light lined-up with Jupiter are Jupiter\'s own large Galilean moons. Top to bottom are Ganymede, [Jupiter], Io, Europa, and Callisto. Ganymede, Io, and Callisto are physically larger than Earth\'s Moon while water world Europa is only slightly smaller.
+             edwdwdwdwdw
+             cede
              """
         label.numberOfLines = 0
         return label
@@ -50,23 +54,64 @@ class ViewController: UIViewController {
     }()
     
     
-    lazy var stackview = UIStackView(arrangedSubviews: [image, spaceViewTop, descritionLbl,spaceBottom, copyRightLbl])
+    lazy var stackview = UIStackView(arrangedSubviews: [imageView, spaceViewTop, descritionLbl,spaceBottom, copyRightLbl])
     
+    
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         view.backgroundColor = .white
         
+        setUpLayout()
+        
+            Task {
+                do {
+                    let photoInfo = try await photoInfoController.fetchPhotoInfo()
+//                    self.title = photoInfo.title
+                    updateUI(with: photoInfo)
+//                    self.descritionLbl.text = photoInfo.description
+//                    self.copyRightLbl.text = photoInfo.copyright
+                } catch {
+//                    self.title = "Error Fetching Photo"
+//                    self.descritionLbl.text = error.localizedDescription
+//                    self.copyRightLbl.text = ""
+                    updateUI(with: error)
+                }
+            }
+    }
+    
+    func updateUI(with photoInfo: PhotoInfo) {
+          Task {
+                do {
+                    let image = try await photoInfoController.fetchImage(from:
+                       photoInfo.url)
+                    title = photoInfo.title
+                    imageView.image = image
+                    descritionLbl.text = photoInfo.description
+                    copyRightLbl.text = photoInfo.copyright
+                } catch {
+                    updateUI(with: error)
+                }
+            }
+
+    }
+    
+    func updateUI(with error: Error) {
+        title = "Error fetching photo"
+//        imageView.image = UIImage(systemName: <#T##String#>)
+        descritionLbl.text = error.localizedDescription
+        copyRightLbl.text = ""
+    }
+    
+    fileprivate func setUpLayout() {
         stackview.backgroundColor = .red
         stackview.distribution = .fill
         stackview.axis = .vertical
         view.addSubview(stackview)
         stackview.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 30, left: 30, bottom: 30, right: 30))
-        
-
     }
-
 
 }
 

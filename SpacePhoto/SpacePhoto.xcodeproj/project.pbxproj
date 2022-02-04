@@ -14,6 +14,7 @@
 		1CA6069E27AD15BA00DC06BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CA6069C27AD15BA00DC06BD /* LaunchScreen.storyboard */; };
 		1CA606A627AD184400DC06BD /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA606A527AD184400DC06BD /* Extensions+UIView.swift */; };
 		1CA606A827AD1CCC00DC06BD /* PhotoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA606A727AD1CCC00DC06BD /* PhotoInfo.swift */; };
+		1CA606AA27AD1D3600DC06BD /* PhotoInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA606A927AD1D3600DC06BD /* PhotoInfoController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		1CA6069F27AD15BA00DC06BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CA606A527AD184400DC06BD /* Extensions+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIView.swift"; sourceTree = "<group>"; };
 		1CA606A727AD1CCC00DC06BD /* PhotoInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfo.swift; sourceTree = "<group>"; };
+		1CA606A927AD1D3600DC06BD /* PhotoInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				1CA6069327AD15B900DC06BD /* SceneDelegate.swift */,
 				1CA6069527AD15B900DC06BD /* ViewController.swift */,
 				1CA606A727AD1CCC00DC06BD /* PhotoInfo.swift */,
+				1CA606A927AD1D3600DC06BD /* PhotoInfoController.swift */,
 				1CA606A527AD184400DC06BD /* Extensions+UIView.swift */,
 				1CA6069A27AD15BA00DC06BD /* Assets.xcassets */,
 				1CA6069C27AD15BA00DC06BD /* LaunchScreen.storyboard */,
@@ -142,6 +145,7 @@
 			files = (
 				1CA606A627AD184400DC06BD /* Extensions+UIView.swift in Sources */,
 				1CA6069627AD15B900DC06BD /* ViewController.swift in Sources */,
+				1CA606AA27AD1D3600DC06BD /* PhotoInfoController.swift in Sources */,
 				1CA6069227AD15B900DC06BD /* AppDelegate.swift in Sources */,
 				1CA6069427AD15B900DC06BD /* SceneDelegate.swift in Sources */,
 				1CA606A827AD1CCC00DC06BD /* PhotoInfo.swift in Sources */,

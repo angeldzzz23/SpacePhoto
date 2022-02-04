@@ -38,10 +38,7 @@ class ViewController: UIViewController {
     
     let descritionLbl: UILabel = {
         let label = UILabel()
-        label.text = """
-             edwdwdwdwdw
-             cede
-             """
+        label.text = ""
         label.numberOfLines = 0
         return label
     }()
@@ -49,7 +46,7 @@ class ViewController: UIViewController {
     let copyRightLbl: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.text = "Robert Fedez"
+        label.text = ""
         return label
     }()
     
@@ -106,7 +103,8 @@ class ViewController: UIViewController {
     }
     
     fileprivate func setUpLayout() {
-        stackview.backgroundColor = .red
+//        stackview.backgroundColor = .red
+        
         stackview.distribution = .fill
         stackview.axis = .vertical
         view.addSubview(stackview)
